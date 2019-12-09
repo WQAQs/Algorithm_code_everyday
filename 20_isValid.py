@@ -8,7 +8,7 @@ class Solution(object):
         stack = []
         for char in s:
             # 要考虑stack是不是为空，否则使用pop()函数会报错
-            # 但要考虑 char是不是在 dic 的key值中
+            # 要考虑 char是不是在 dic 的key值中
             if char in dic and len(stack) > 0:
                 top = stack.pop()
                 if top != dic[char]:
