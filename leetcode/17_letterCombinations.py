@@ -28,26 +28,25 @@ class Solution:
 
     # 方法2 使用递归
     def letterCombinations2(self, digits):
-        if len(digits) == 0:
+        out = []
+        dic = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
+
+        def myiter(res, digits):
+            if not digits:
+                out.append(res)
+                return
+            temp = digits[0]
+            for char in dic[temp]:
+                myiter(res + char, digits[1:])
+
+        # if len(digits) == 0:
+        if not digits:
             return ""
-        dic_phone = {'2': "abc", '3': "def", '4': "ghi", '5': "jkl",
-                     '6': "mno", '7': "pqrs", '8': "tuv", '9': "wxyz"}
-
-        def iter_combination(res, digits):
-            if len(digits) == 0:
-                output.append(res)
-            else:
-                s = digits[0]
-                for letter in dic_phone[s]:
-                    iter_combination(res + letter, digits[1:])
-
-        output = []
-        iter_combination("", digits)
-        return output
+        myiter("", digits)
+        return out
 
 
 so = Solution()
-# out = so.letterCombinations1("23")
-out = so.letterCombinations2("23")
+out = so.letterCombinations("23")
 out
 
