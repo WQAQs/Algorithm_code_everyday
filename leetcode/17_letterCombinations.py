@@ -45,8 +45,7 @@ class Solution:
         myiter("", digits)
         return out
 
-
 so = Solution()
-out = so.letterCombinations("23")
+out = so.letterCombinations2("23")
 out
 
